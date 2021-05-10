@@ -10,7 +10,7 @@ const scandir = module.exports = (dir, handler, extensions = ['json','js'], load
 
     // Iterate down directories
     if (stat.isDirectory()) {
-      return scandir(fullpath, handler, extensions);
+      return scandir(fullpath, handler, extensions, load);
     }
 
     // Ensure it's the right file
@@ -31,7 +31,7 @@ scandir.sync = (dir, handler, extensions = ['json','js'], load = false) => {
 
     // Iterate down directories
     if (stat.isDirectory()) {
-      return scandir.sync(fullpath, handler, extensions);
+      return scandir.sync(fullpath, handler, extensions, load);
     }
 
     // Ensure it's the right file
